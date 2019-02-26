@@ -8,13 +8,15 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: true}));
 
 // change "/" with HOMEPAGE (server)
-// when server loads it sends the users browser the html file
+// when server loads (get) it 
+// responds (res) and sends the users browser the html file
+// __dirname starts at the browser/server root directory
 app.get("/", function(req, res) {
     res.sendFile(__dirname + "/index.html"); 
 });
 
 
-// .post will handle any "method=post" requests that come in
+// .post will handle any "method=post" requests that come in from html
 app.post("/", function(req, res) {
     
     var userstation = req.body.station;     // get user input here
@@ -47,9 +49,3 @@ app.listen(port, function() {
     console.log("Server started on port 8000");
 });
 
-/*
-app.listen(8000, function() {
-    
-    console.log("Server started on port 8000");
-});
-*/

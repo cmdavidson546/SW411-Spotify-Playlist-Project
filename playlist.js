@@ -1,41 +1,78 @@
 const express = require("express");
-const ihr = require("iheartradio");
+const bodyParser = require("body-parser");
+const iheart = require("iheart");
+//const iheart = require('./');
 const app = express();
 
-// next we create body-parser requirement to parse UI data
-const bodyParser = require("body-parser");
-// next we HAVE TO SET UP PARSER LIKE THIS...
 app.use(bodyParser.urlencoded({extended: true}));
 
-// change "/" with HOMEPAGE (server)
-// when server loads (get) it 
-// responds (res) and sends the users browser the html file
-// __dirname starts at the browser/server root directory
+/* search for a station, pick the first match
+const matches = await iheart.search(process.argv[2] || '1077 the bone');
+const station = matches.stations[0];
+*/
+
+
+
 app.get("/", function(req, res) {
-    res.sendFile(__dirname + "/index.html"); 
+    
+    res.sendFile(__dirname + "/index.html");
 });
 
 
-// .post will handle any "method=post" requests that come in from html
 app.post("/", function(req, res) {
     
-    var userstation = req.body.station;     // get user input here
+   var email = req.body.email;
+   var uStation = req.body.station;
+   var name = uStation;
+   
+    console.log(uStation);
     
-ihr.search(userstation, {       // place into search for parameter
-  "secure": false,
-  "maxRows": 5, 
-  "bundle": false,
-  "station": true,
-  "artist": true,
-  "album": false,
-  "track": false,
-  "playlist": true,
-  "podcast": false
-  }).then(results => {
-    res.send(results);          // need to parse this data out
-}).catch(console.error);   
+    // iheart npm requires async function to work
+    async function main() {
+        // this method works to get a single station...
+        //const { stations: [ station ] } = await iheart.search(uStation);
+        
+        // setup array up to N collections w/ process.argv[N]
+        // then print with matches.stations[i]
+        const matches = await iheart.search(process.argv[2] || uStation);
+        
+        
+        // FUTURE: create array() to hold stations collected
+        // get stations from search()
+        const station = matches.stations[0];
+        const station2 = matches.stations[1];
+ 
+        // get name of stations to display
+        name = matches.stations[0].name; 
+        console.log(name);
+        
+        // get url for streaming
+        const stream = await iheart.streamURL(station);
+        const stream2 = await iheart.streamURL(station2);
+        
+        // log to console
+        // FUTURE: store in JSON file for DB
+        console.log({ station, stream }, {station2, stream2 });
+    }
+
+    main().catch(err => {
+        console.error(err);
+        process.exit(1); });
     
-}); // end .post()
+    // write to page /playlist.js
+    res.write("<h1>You selected: " + uStation + " for station</h1>");
+    
+    // DOES NOT WORK --> does not contain async function val
+    //res.write("<p>Best Matched Station: " + name + "</p>");
+    
+    res.send();
+    
+});
+
+
+
+
+
 
 
 // Horoku requires listening on PORT
@@ -48,4 +85,5 @@ if (port == null || port == "") {
 app.listen(port, function() {
     console.log("Server started on port 8000");
 });
+
 

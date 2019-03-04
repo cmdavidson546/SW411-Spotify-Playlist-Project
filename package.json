@@ -1,16 +1,16 @@
 {
-  "name": "team3v1",
+  "name": "team3v2",
   "version": "1.0.0",
-  "description": "Playlist Generator v1",
+  "description": "",
   "main": "playlist.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Chris Davidson",
+  "author": "Christopher Davidson",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "iheartradio": "^1.0.2"
+    "iheart": "^3.1.1"
   }
 }

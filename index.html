@@ -1,86 +1,57 @@
-<!DOCTYPE html>
-<html>
-    
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Team3-Playlist</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Playlist Generator</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="styled.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    <form action="/" class="form-signin" method="POST">
+        <img class="mb-4" src="arc.jpg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Team 3 - Playlist Generator</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Search Radio Stations</label>
         
-         <style type="text/css">
-             
-            * {
-              box-sizing: border-box;
-              font-family: Arial, Helvetica, sans-serif;
-            }
-
-            body {
-              margin: 0;
-              font-family: Arial, Helvetica, sans-serif;
-            }
-
-            /* Style the top navigation bar */
-            .topnav {
-              overflow: hidden;
-              background-color: #333;
-            }
-
-            /* Style the topnav links */
-            .topnav a {
-              float: left;
-              display: block;
-              color: #f2f2f2;
-              text-align: center;
-              padding: 14px 16px;
-              text-decoration: none;
-            }
-
-            /* Change color on hover */
-            .topnav a:hover {
-              background-color: #ddd;
-              color: black;
-            }
-
-            /* Style the content */
-            .content {
-              background-color: #ddd;
-              padding: 10px;
-              height: 200px; /* Should be removed. Only for demonstration */
-            }
-
-            /* Style the footer */
-            .footer {
-              background-color: #f1f1f1;
-              padding: 10px;
-            }
-
-        </style>
-
-    </head>
-    <body>
-        <div class="topnav">
-            <a href="#">AdminLogin</a>
-            <a href="#">Developer Team</a>
-            <a href="#">FAQ</a>
-        </div>
-        <div class="content">
-            <h1>Login</h1>
-            
-         <!--   <a href="userpreferences.html"><button>Go To Preferences</button></a> -->
-            
-            <form action="/" method="post">
-                <input type="email" name="email" placeholder="email@example">
-                <input type="text" name="station" placeholder="enter fav radio station"> 
-                <button type="submit" name="submit">Enter</button> 
-                
-            </form> 
-        </div>
-        <div class="footer">
-            <p>Footer</p>
-        </div>
+        <select name = "dropdown" id="inputPassword" class="form-control">
+            <option value = "Rock" selected>Rock</option>
+            <option value = "Jazz">Jazz</option>
+            <option value = "HipHop">Hip Hop</option>
+         </select>
         
-    </body>
+     <!--   NEED TO HAVE SPELLCHECK/ERROR CATCH TO DEPLOY THIS
+<input type="text" name="station" id="inputPassword" class="form-control" placeholder="Search Word (e.g., Rock, Jazz)" required> -->
+        
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+    </form>
+</body>
 </html>
-
-
-
-

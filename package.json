@@ -1,16 +1,17 @@
 {
-  "name": "team3v2",
-  "version": "1.0.0",
+  "name": "plg_v1.4",
+  "version": "1.4.0",
   "description": "",
-  "main": "playlist.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Christopher Davidson",
+  "author": "chris davidson",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "iheart": "^3.1.1"
+    "iheart": "^3.1.1",
+    "request": "^2.88.0"
   }
 }

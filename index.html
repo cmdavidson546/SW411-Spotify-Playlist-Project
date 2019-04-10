@@ -1,70 +1,78 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+	<meta charset="UTF-8">
+	<title>Spotify Playlist Gen</title>
+	
+    <style>
+        .main-container {
+            min-height: 100vh;
+            background: linear-gradient(75deg, rgba(205, 205, 155, 0.82), rgba(69, 24, 115, 0.53));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-    <title>Playlist Generator</title>
-      
-      <style>
-          body {
-              background: lightgray;
-          }
-          .userInput {
-              position: absolute;
-              width: 300px;
-              height: 200px;
-              z-index: 15;
-              top: 25%;
-              left: 50%;
-              margin: -100px 0 0 -150px;
-              
-          }
-      
-      
-      </style>
+        .form {
 
-    <!-- Custom styles for this template -->
-    <link href="styles.css" rel="stylesheet">
-  </head>
-  <body>
+            margin: 0 auto;  
+
+        }
+
+        .form p {
+	       color: black;
+	       font-size: 12px;
+        }
     
-    <div class="userInput">
-      <h1>Team 3</h1>
-      <h2>Playlist Generator</h2>
-      <form method='post' action='/' id='form_box' autocomplete='on'>
-          <pre> 
+    </style>
+</head>
+<body>
+   
+	<main class="main-container">
 
-        What is your name?
-        <input type='text' name='name' required='required' placeholder='your name'>
-            
-        What is your email?
-        <input type='email' name='email' required='required' placeholder='you@example.com'>
+			<div class="form">
+				<h1>Playlist Generator</h1>
+                <form method='post' action='/' id='form_box' autocomplete='on'>
+                    
+                    <p>Enter Email</p>
+                    <p><input type='email' name='email' required='required' placeholder='you@example.com'></p>
+                    
+                    <p>Enter Favorite Artists</p>
+                    <p><input type='search' name='artist' required='required' placeholder='Enter Artist (e.g., Elvis)'></p>
+                    
+                    <!-- Enter Region -->
+                    <p>Select Region</p>
+                    <select name='region' size='1'>
+                        <option value='east'>East</option>
+                        <option value='west'>West</option>
+                        <option value='south'>South</option>
+                        <option value='central'>Central</option>
+                    </select>
+                    <br>
+              <!--  Enter Time to Generate List?
+                    <input type='number' name='timer_user' placeholder='10'>
+                     I CHANGED THE NAME OF THE TIMER_USER FROM TIMER_ALT 3.24.19-->
 
-        What is your favorite music?
-        <input type='text' name='station' required='required' placeholder='Search Word (e.g., Rock, Jazz)'>
+                    <p>Select Time to Generate List</p>
+                    <select name='timer_drop' size='1'>
+                        <option value='10'>10 minutes</option>
+                        <option value='30'>30 minutes</option>
+                        <option value='45'>45 minutes</option>
+                        <option value='60'>60 minutes</option>
+                    </select>
+                    <br>
+                    <p><input type="submit" value="Create"></p>
+                </form>
+			</div>
+			<div class="playlist">
+				<div class="loader">
+					<div class="inner-circle"></div>
+				</div>
+			</div>
 
-  <!--  Enter Time to Generate List?
-        <input type='number' name='timer_user' placeholder='10'>
-         I CHANGED THE NAME OF THE TIMER_USER FROM TIMER_ALT 3.24.19-->
-
-        Select Time to Generate List?
-        <select name='timer_drop' size='1'>
-            <option value='10'>10 minutes</option>
-            <option value='30'>30 minutes</option>
-            <option value='45'>45 minutes</option>
-            <option value='60'>60 minutes</option>
-        </select>
-                
-        <input type='submit' id='form_click'>
-        
-        </pre> 
-          
-        </form>
-      </div> 
-    </body>
+	</main>
+	<script src="script.js"></script>
+</body>
 </html>
-
 
 
